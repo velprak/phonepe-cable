@@ -1,18 +1,8 @@
-pipeline{
-    agent any{
-        stages{
-            stage('githubcode checkout'){
-                steps{
-                    git credentialsId: 'git', url: 'https://github.com/velprak/phonepe-cable.git'
-                }
-                stage('clean install'){
-                    steps{
-                        sh 'mvn clean install'
-                    }
-                }
-                }
-            }
-        }
-        }
+node{ 
+    stage('githubcode checkout'){
+    git credentialsId: 'git', url: 'https://github.com/velprak/phonepe-cable.git'
+    }
+    stage('clean install'){
+       sh 'mvn clean install'
     }
 }
